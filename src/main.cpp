@@ -1,21 +1,32 @@
 #include <Arduino.h>
-
-#define motor1pin2 12
-#define motor1pin1 14
-#define motor2pin2 26
-#define motor2pin1 27 
+#include "movement.h"
+#include "gyroscope.h"
+#include "pid.h"
 
 void setup() {
-  pinMode(motor1pin1, OUTPUT);
-  pinMode(motor1pin2, OUTPUT);
-  pinMode(motor2pin1, OUTPUT);
-  pinMode(motor2pin2, OUTPUT);
-
+  Serial.begin(115200);
+  setupMotors();
+  setupGyroscope();
+  setupPID(getAngle());
 }
 
 void loop() {
-  digitalWrite(motor1pin1, HIGH);
-  digitalWrite(motor1pin2, LOW);
-  digitalWrite(motor2pin1, HIGH);
-  digitalWrite(motor2pin2, LOW);
+  double tilt = getAngle();
+  Serial.print(tilt);
+  Serial.print(" ");
+  double output = updatePID(tilt);
+  Serial.println(output);
+
+  double speed = map(output, 0, 255, 0, 255);
+
+  // Serial.print(speed);
+  // Serial.print(" ");
+  // Serial.println(readGyro());
+  if(abs(tilt) > 40 || abs(tilt) < 3){
+    stop();
+  } else if (tilt < 0) {
+    moveForward(speed);
+  } else {
+    moveBackward(speed);
+  }
 }
