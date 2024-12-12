@@ -1,56 +1,56 @@
-#include <Arduino.h>
 #include "movement.h"
+#include <Arduino.h>
 
-const int ENA = 18;
-const int ENB = 19;
-const int LEFT_MOTOR_PIN1 = 14;
-const int LEFT_MOTOR_PIN2 = 12;
-const int RIGHT_MOTOR_PIN1 = 27;
-const int RIGHT_MOTOR_PIN2 = 26;
+int enableMotor1 = 13;
+int motor1Pin1 = 12;
+int motor1Pin2 = 14;
 
-void setupMotors() {
-  pinMode(LEFT_MOTOR_PIN1, OUTPUT);
-  pinMode(LEFT_MOTOR_PIN2, OUTPUT);
-  pinMode(RIGHT_MOTOR_PIN1, OUTPUT);
-  pinMode(RIGHT_MOTOR_PIN2, OUTPUT);
+int motor2Pin1 = 27;
+int motor2Pin2 = 26;
+int enableMotor2 = 25;
+
+#define MIN_ABSOLUTE_SPEED 0
+
+void rotateMotor(int speed1, int speed2)
+{
+  if (speed1 < 0)
+  {
+    digitalWrite(motor1Pin1, LOW);
+    digitalWrite(motor1Pin2, HIGH);    
+  }
+  else
+  {
+    digitalWrite(motor1Pin1, HIGH);
+    digitalWrite(motor1Pin2, LOW);      
+  }
+
+  if (speed2 < 0)
+  {
+    digitalWrite(motor2Pin1, LOW);
+    digitalWrite(motor2Pin2, HIGH);    
+  }
+  else
+  {
+    digitalWrite(motor2Pin1, HIGH);
+    digitalWrite(motor2Pin2, LOW);      
+  }
+
+  speed1 = constrain(abs(speed1) + MIN_ABSOLUTE_SPEED, MIN_ABSOLUTE_SPEED, 220);
+  speed2 = constrain(abs(speed2) + MIN_ABSOLUTE_SPEED, MIN_ABSOLUTE_SPEED, 220);
+    
+  analogWrite(enableMotor1, speed1);
+  analogWrite(enableMotor2, speed2);    
 }
 
-void moveForward(int speed) {
-  analogWrite(ENA, speed);
-  analogWrite(ENB, speed);
-  digitalWrite(LEFT_MOTOR_PIN1, HIGH);
-  digitalWrite(LEFT_MOTOR_PIN2, LOW);
-  digitalWrite(RIGHT_MOTOR_PIN1, HIGH);
-  digitalWrite(RIGHT_MOTOR_PIN2, LOW);
-}
+void setupMotors()
+{
+  pinMode(enableMotor1, OUTPUT);
+  pinMode(motor1Pin1, OUTPUT);
+  pinMode(motor1Pin2, OUTPUT);
+  
+  pinMode(enableMotor2, OUTPUT);
+  pinMode(motor2Pin1, OUTPUT);
+  pinMode(motor2Pin2, OUTPUT);
 
-void moveBackward(int speed) {
-  analogWrite(ENA, speed);
-  analogWrite(ENB, speed);
-  digitalWrite(LEFT_MOTOR_PIN1, LOW);
-  digitalWrite(LEFT_MOTOR_PIN2, HIGH);
-  digitalWrite(RIGHT_MOTOR_PIN1, LOW);
-  digitalWrite(RIGHT_MOTOR_PIN2, HIGH);
+  rotateMotor(0, 0);
 }
-
-void turnLeft() {
-  digitalWrite(LEFT_MOTOR_PIN1, LOW);
-  digitalWrite(LEFT_MOTOR_PIN2, HIGH);
-  digitalWrite(RIGHT_MOTOR_PIN1, HIGH);
-  digitalWrite(RIGHT_MOTOR_PIN2, LOW);
-}
-
-void turnRight() {
-  digitalWrite(LEFT_MOTOR_PIN1, HIGH);
-  digitalWrite(LEFT_MOTOR_PIN2, LOW);
-  digitalWrite(RIGHT_MOTOR_PIN1, LOW);
-  digitalWrite(RIGHT_MOTOR_PIN2, HIGH);
-}
-
-void stop() {
-  digitalWrite(LEFT_MOTOR_PIN1, LOW);
-  digitalWrite(LEFT_MOTOR_PIN2, LOW);
-  digitalWrite(RIGHT_MOTOR_PIN1, LOW);
-  digitalWrite(RIGHT_MOTOR_PIN2, LOW);
-}
-

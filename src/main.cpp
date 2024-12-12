@@ -1,32 +1,53 @@
 #include <Arduino.h>
 #include "movement.h"
-#include "gyroscope.h"
 #include "pid.h"
+#include "mpu.h"
+#include "mpu_calibration.h"
 
-void setup() {
+void setup()
+{
   Serial.begin(115200);
-  setupMotors();
-  setupGyroscope();
-  setupPID(getAngle());
+  setupMotors();   
+  setupMPU();
+  setupPID();
+  //for calibration
+  // calibrateMPU();
 }
 
-void loop() {
-  double tilt = getAngle();
-  Serial.print(tilt);
-  Serial.print(" ");
-  double output = updatePID(tilt);
-  Serial.println(output);
+void loop()
+{
+  if (!dmpReady) return;
 
-  double speed = map(output, 0, 255, 0, 255);
+  if (mpu.dmpGetCurrentFIFOPacket(fifoBuffer)) 
+  {  
+    mpu.dmpGetQuaternion(&q, fifoBuffer);
+    mpu.dmpGetGravity(&gravity, &q);
+    mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
+    mpu.dmpGetGyro(&gy, fifoBuffer);
 
-  // Serial.print(speed);
-  // Serial.print(" ");
-  // Serial.println(readGyro());
-  if(abs(tilt) > 40 || abs(tilt) < 3){
-    stop();
-  } else if (tilt < 0) {
-    moveForward(speed);
-  } else {
-    moveBackward(speed);
+    yawGyroRate = gy.z;                   
+    pitchGyroAngle = ypr[2] * 180/M_PI;   
+
+    pitchPID.Compute();
+    yawPID.Compute();
+
+    Serial.print("Pitch Angle: ");
+    Serial.print(pitchGyroAngle);
+    Serial.print(" YaW Rate: ");
+    Serial.print(yawGyroRate);
+    Serial.print(" Pitch PID: ");
+    Serial.println(pitchPIDOutput);
+
+    rotateMotor(pitchPIDOutput + yawPIDOutput, pitchPIDOutput - yawPIDOutput);
+
+    #ifdef PRINT_DEBUG_BUILD
+      Serial.println("The gyro  before ");
+      Serial.println(pitchGyroAngle);
+      Serial.println("The setpoints ");
+      Serial.println(setpointPitchAngle);
+      Serial.println("The pid output ");
+      Serial.println(pitchPIDOutput);
+      delay(500);    
+    #endif
   }
 }

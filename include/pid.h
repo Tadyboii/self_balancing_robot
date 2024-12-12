@@ -1,8 +1,16 @@
 #ifndef PID_H
 #define PID_H
+#include <PID_v1.h>
+
+void setupPID();
 
 
-void setupPID(double initialTilt);
-double updatePID(double currentTilt);
+extern double pitchGyroAngle;
+extern double pitchPIDOutput;
+extern double yawGyroRate;
+extern double yawPIDOutput;
+extern PID pitchPID;
+extern PID yawPID;
 
-#endif
+
+#endif // PID_H
