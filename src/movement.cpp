@@ -2,8 +2,8 @@
 #include <Arduino.h>
 
 int enableMotor1 = 13;
-int motor1Pin1 = 12;
-int motor1Pin2 = 14;
+int motor1Pin1 = 14;
+int motor1Pin2 = 12;
 
 int motor2Pin1 = 27;
 int motor2Pin2 = 26;
@@ -38,6 +38,10 @@ void rotateMotor(int speed1, int speed2)
   speed1 = constrain(abs(speed1) + MIN_ABSOLUTE_SPEED, MIN_ABSOLUTE_SPEED, 220);
   speed2 = constrain(abs(speed2) + MIN_ABSOLUTE_SPEED, MIN_ABSOLUTE_SPEED, 220);
     
+  Serial.print(" Speed1: ");
+  Serial.print(speed1);
+  Serial.print(" Speed2: ");
+  Serial.println(speed2);
   analogWrite(enableMotor1, speed1);
   analogWrite(enableMotor2, speed2);    
 }

@@ -5,7 +5,7 @@
 #define PID_MAX_LIMIT 255
 #define PID_SAMPLE_TIME_IN_MILLI 10
 
-#define SETPOINT_PITCH_ANGLE_OFFSET 4
+#define SETPOINT_PITCH_ANGLE_OFFSET 0
 
 double setpointPitchAngle = SETPOINT_PITCH_ANGLE_OFFSET;
 double pitchGyroAngle = 0;
@@ -15,9 +15,9 @@ double setpointYawRate = 0;
 double yawGyroRate = 0;
 double yawPIDOutput = 0;
 
-#define PID_PITCH_KP 15
-#define PID_PITCH_KI 0
-#define PID_PITCH_KD 0
+#define PID_PITCH_KP 21
+#define PID_PITCH_KI 60
+#define PID_PITCH_KD 0.6
 
 #define PID_YAW_KP 0.5
 #define PID_YAW_KI 0.5

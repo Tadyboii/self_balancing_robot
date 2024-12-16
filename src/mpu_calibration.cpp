@@ -7,12 +7,12 @@ extern MPU6050 mpu;
 uint8_t dev_status;
 
 void calibrateMPU(){
-  mpu.setXAccelOffset(-528); 
-  mpu.setYAccelOffset(-467); 
-  mpu.setZAccelOffset(1112);   
-  mpu.setXGyroOffset(116);
-  mpu.setYGyroOffset(20);
-  mpu.setZGyroOffset(2);
+  mpu.setXAccelOffset(-542); 
+  mpu.setYAccelOffset(-497); 
+  mpu.setZAccelOffset(1114);   
+  mpu.setXGyroOffset(106);
+  mpu.setYGyroOffset(-17);
+  mpu.setZGyroOffset(0);
 }
 
 void calculateCalibration() {
