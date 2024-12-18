@@ -10,7 +10,6 @@ void setup()
   setupMotors();   
   setupMPU();
   setupPID();
-  // for calibration
   calibrateMPU();
 }
 
@@ -41,20 +40,12 @@ void loop()
     Serial.print(yawPIDOutput);
 
     rotateMotor(pitchPIDOutput + yawPIDOutput, pitchPIDOutput - yawPIDOutput);
-
-    #ifdef PRINT_DEBUG_BUILD
-      Serial.println("The gyro  before ");
-      Serial.println(pitchGyroAngle);
-      Serial.println("The setpoints ");
-      Serial.println(setpointPitchAngle);
-      Serial.println("The pid output ");
-      Serial.println(pitchPIDOutput);
-      delay(500);    
-    #endif
   }
 }
 
 
+
+//for mpu calibration
 // // I2Cdev and MPU6050 must be installed as libraries, or else the .cpp/.h files
 // // for both classes must be in the include path of your project
 // #include "I2Cdev.h"
