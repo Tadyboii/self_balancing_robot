@@ -40,11 +40,7 @@ To design and develop a self-balancing robot capable of maintaining an upright p
         Connected the ESP32, MPU6050, motor driver, and motors as per the provided circuit diagram.
         Verified power supply and component functionality.
 
-    Circuit Diagram
-    ![circuitdia](https://github.com/user-attachments/assets/50c9608c-392b-4af2-bb23-75c2e78f307f)
 
-    Block Diagram
-    ![BCD](https://github.com/user-attachments/assets/a775ab54-ec51-4d9f-8b1e-e1b1df76e3b7)
 
     Software Implementation
         Configured the ESP32 environment in Visual Studio Code.
@@ -54,6 +50,12 @@ To design and develop a self-balancing robot capable of maintaining an upright p
     Testing and Validation
         Conducted experiments to measure stability under varying conditions.
         Validated performance by observing response to external disturbances.
+
+### Circuit Diagram
+![circuitdia](https://github.com/user-attachments/assets/50c9608c-392b-4af2-bb23-75c2e78f307f)
+
+### Block Diagram
+![BCD](https://github.com/user-attachments/assets/a775ab54-ec51-4d9f-8b1e-e1b1df76e3b7)
 
 ## 🚀 Testing Results
 During testing, the robot achieved the following:
