@@ -1,4 +1,4 @@
-![IMG20241216120336](https://github.com/user-attachments/assets/1391d167-90a0-4cb1-93fd-c3eb5fea0bc8)![IMG20241216120336](https://github.com/user-attachments/assets/5f8990a1-a702-42d7-bcff-8676def2e489)# 🤖 Self-Balancing Robot
+# 🤖 Self-Balancing Robot
 
 This repository contains the design, implementation, and code for our Self-Balancing Robot project. The robot is a demonstration of dynamic stability using feedback control systems, powered by an ESP32 microcontroller and an MPU6050 sensor for precise tilt detection.
 
@@ -70,23 +70,23 @@ During testing, the robot achieved the following:
             Kd: 0
         
 ## 📷 Visual
-    In Action
-    ![VID20241216120246-ezgif com-optimize](https://github.com/user-attachments/assets/95fc5c23-606c-4563-8965-35550cd9c79b)
+### In Action
+![VID20241216120246-ezgif com-optimize](https://github.com/user-attachments/assets/95fc5c23-606c-4563-8965-35550cd9c79b)
 
-    Perspective View
-    ![IMG20241216120350](https://github.com/user-attachments/assets/7f48dc40-040b-4acd-aeb6-4b2cc7a27b79)
+### Perspective View
+<img src="https://github.com/user-attachments/assets/7f48dc40-040b-4acd-aeb6-4b2cc7a27b79" width=30% height=30%>
 
-    Front View
-    ![IMG20241216120333](https://github.com/user-attachments/assets/285782cf-3b64-4c9e-82d3-6b4dcd4d297a)
+### Front View
+<img src="https://github.com/user-attachments/assets/285782cf-3b64-4c9e-82d3-6b4dcd4d297a" width=30% height=30%>
 
-    Back View
-    ![IMG20241216120336](https://github.com/user-attachments/assets/cfac928b-d902-4d46-8830-a3c82cc29c90)
+### Back View
+<img src="https://github.com/user-attachments/assets/cfac928b-d902-4d46-8830-a3c82cc29c90" width=30% height=30%>
 
-    Top View
-    ![IMG20241216120340](https://github.com/user-attachments/assets/662d007a-0043-4da6-acc1-640847cf3b0b)
+### Top View
+<img src="https://github.com/user-attachments/assets/662d007a-0043-4da6-acc1-640847cf3b0b" width=30% height=30%>
 
-    Side View
-    ![IMG20241216120400](https://github.com/user-attachments/assets/061405e5-179a-448a-8930-d9ed16d61176)
+### Side View
+<img src="https://github.com/user-attachments/assets/061405e5-179a-448a-8930-d9ed16d61176" width=30% height=30%>
 
 ## 📝 Conclusion
 This project demonstrates the integration of electronics, control theory, and programming to create a functional self-balancing robot. The design serves as a practical application of feedback systems and offers scope for further development, such as obstacle avoidance or remote control.
