@@ -40,8 +40,6 @@ To design and develop a self-balancing robot capable of maintaining an upright p
         Connected the ESP32, MPU6050, motor driver, and motors as per the provided circuit diagram.
         Verified power supply and component functionality.
 
-
-
     Software Implementation
         Configured the ESP32 environment in Visual Studio Code.
         Developed the PID control logic to process sensor input and adjust motor output.
@@ -55,7 +53,7 @@ To design and develop a self-balancing robot capable of maintaining an upright p
 ![circuitdia](https://github.com/user-attachments/assets/50c9608c-392b-4af2-bb23-75c2e78f307f)
 
 ### Block Diagram
-![BCD](https://github.com/user-attachments/assets/a775ab54-ec51-4d9f-8b1e-e1b1df76e3b7)
+![BCD](https://github.com/user-attachments/assets/9f9dc6d1-e565-47f2-ab05-f23651c02475)
 
 ## 🚀 Testing Results
 During testing, the robot achieved the following:
@@ -73,7 +71,7 @@ During testing, the robot achieved the following:
         
 ## 📷 Visual
 ### In Action
-![VID20241216120246-ezgif com-optimize](https://github.com/user-attachments/assets/95fc5c23-606c-4563-8965-35550cd9c79b)
+![InAction](https://github.com/Tadyboii/self_balancing_robot/blob/main/InAction.gif)
 
 ### Perspective View
 <img src="https://github.com/user-attachments/assets/7f48dc40-040b-4acd-aeb6-4b2cc7a27b79" width=30% height=30%>
@@ -89,6 +87,9 @@ During testing, the robot achieved the following:
 
 ### Side View
 <img src="https://github.com/user-attachments/assets/061405e5-179a-448a-8930-d9ed16d61176" width=30% height=30%>
+
+### Extra Documentation (Videos)
+![Google Drive](https://drive.google.com/drive/folders/1Ud7adpOkiMgPnb52v6EoKxKVpMoDGjmw?usp=sharing)
 
 ## 📝 Conclusion
 This project demonstrates the integration of electronics, control theory, and programming to create a functional self-balancing robot. The design serves as a practical application of feedback systems and offers scope for further development, such as obstacle avoidance or remote control.
