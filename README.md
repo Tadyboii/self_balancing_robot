@@ -89,7 +89,7 @@ During testing, the robot achieved the following:
 <img src="https://github.com/user-attachments/assets/061405e5-179a-448a-8930-d9ed16d61176" width=30% height=30%>
 
 ### Extra Documentation (Videos)
-![Google Drive](https://drive.google.com/drive/folders/1Ud7adpOkiMgPnb52v6EoKxKVpMoDGjmw?usp=sharing)
+[Google Drive](https://drive.google.com/drive/folders/1Ud7adpOkiMgPnb52v6EoKxKVpMoDGjmw?usp=sharing)
 
 ## 📝 Conclusion
 This project demonstrates the integration of electronics, control theory, and programming to create a functional self-balancing robot. The design serves as a practical application of feedback systems and offers scope for further development, such as obstacle avoidance or remote control.
